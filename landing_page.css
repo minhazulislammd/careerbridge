@@ -1,0 +1,352 @@
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+}
+
+.page{
+    width: 100%;
+    min-height: 100vh;
+    background-color: hsl(210, 20%, 97%);   
+}
+
+@font-face {
+    font-family: nova;
+    src: url(logo/Nova_Flat/NovaFlat-Regular.ttf);
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content:space-between; /* Align items to the start (left) */
+    width: 100%;
+    align-items: center;
+    position: relative;
+    padding: 15px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a{
+    cursor: pointer;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    font-family: nova;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; /* Add space between logo and menu items */
+    cursor: pointer;
+}
+
+.navbar .logo {
+    margin-right: 20px; /* Add space between logo and menu items */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin-right: auto; /* Pushes the profile icon to the right */
+}
+
+.navbar ul li {
+    margin: 0 25px; /* Increase space between li items */
+    font-size: 14px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar ul li a:hover {
+    color:  rgb(255, 221, 0);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar ul {
+        display: none; /* Hide the nav links for mobile, you might want to implement a hamburger menu */
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .sub-menu-wrap {
+        width: 100%; /* Make dropdown full width on mobile */
+        right: 0;
+    }
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background: white;
+    width: 350px;
+    margin-right: 101px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex: 1;
+    background: transparent;
+}
+
+.icon {
+    color: #666;
+    margin-left: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 8px;
+    font-size: 14px;
+}
+
+.hero-content{
+    font-size: 26px;
+}
+
+.logo a{ 
+    text-decoration: none;
+    color: black;
+}
+
+.start_button {  
+    background-color: rgb(255, 220, 0);
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid #FFDC00;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+p{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#hero {
+    height: 450px;
+    color: rgb(43, 20, 20);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.logo2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#how-it-works{
+    height: 30px;
+    color: rgb(43, 20, 20);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#jobs{
+    height: 70px;
+    color: #07213c;
+    display: flex;
+    justify-content: center;
+   text-align: center;
+   margin-top: 20px;
+}
+.logo3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 30px;
+    margin-bottom:50px;
+}
+
+.post-job a{
+    text-decoration: none;
+    color: black;
+}
+
+.login a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    margin: 20px;
+}
+
+.login :hover{
+    color: rgb(255, 221, 0);
+}
+
+.signUp{
+    background-color: rgb(255, 220, 0);
+    color: black;
+    padding: 6px 12px;
+    border: 1px solid #FFDC00;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.signUp a{
+    text-decoration: none;
+    color: black;
+}
+
+.post-job:hover{
+    color: rgb(233, 202, 2);
+}
+
+/*Dropdown menu*/
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar .dropdown1 {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content1 a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content1 a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+
+
+
+/*dicover*/
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }  
+  /*feature start*/
+.s_feature{
+	text-align: center;
+	margin-top: 45px;
+	padding: 55px  0 50px;
+	background-color: #f0fff0;
+	border-radius: 10px;
+	transition: .33s;
+}
+.s_feature:hover{
+	background: #FFF;
+	box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.10);
+}
+.f_h2{
+	margin-top: 25px;
+	font-size: 24px;
+	font-weight: 500;
+	color: #413960;
+}
+.f_p{
+	color: #585859;
+}
+/*feature end*/

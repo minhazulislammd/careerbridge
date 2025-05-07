@@ -1,0 +1,553 @@
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+}
+
+.page{
+    width: 100%;
+    min-height: 100vh;
+    background-color: hsl(210, 20%, 97%);
+   
+}
+
+@font-face {
+    font-family: nova;
+    src: url(logo/Nova_Flat/NovaFlat-Regular.ttf);
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content:space-between; /* Align items to the start (left) */
+    width: 100%;
+    align-items: center;
+    position: relative;
+    padding: 15px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a{
+    cursor: pointer;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    font-family: nova;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; /* Add space between logo and menu items */
+    cursor: pointer;
+}
+
+.navbar .logo {
+    margin-right: 20px; /* Add space between logo and menu items */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin-right: auto; /* Pushes the profile icon to the right */
+}
+
+.navbar ul li {
+    margin: 0 25px; /* Increase space between li items */
+    font-size: 14px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar ul li a:hover {
+    color:  rgb(255, 221, 0);
+}
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user_pic{
+        width: 60px; /* Set a fixed width */
+        border-radius: 50%; /* Make it circular */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+        margin-right: 1px;   
+        cursor: pointer;
+}
+    
+.user_pic img {
+        width: 100%; /* Keep the image responsive within the circle */
+        height: auto; /* Maintain aspect ratio */
+}
+    
+.user_pic:hover {
+        background-color: #d9e9ff; /* Slightly darker on hover */
+}
+
+.sub-menu-wrap{
+    background-color: white;
+    position: absolute;
+    top: 95%;
+    right: 3%;
+    max-height: 0px;
+    overflow: hidden;
+    border-radius: 5px;    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 300px;
+}
+
+.sub-menu{
+    width: 250px;
+    padding: 15px;
+    margin: 5px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3{
+    font-weight: 500;
+}
+
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;
+    background: #ccc;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.sub-menu-link p{
+    width: 70%;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: hsl(0, 0%, 85%);
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 12px;
+}
+
+.sub-menu-link span{
+    font-size: 24px;
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.sub-menu-link:hover {
+    background-color: #eeeeee; /* Background color on hover */
+}
+
+.account-text {
+    position: absolute;
+    top: 110%;
+    transform: translateY(-50%);
+    right: 35px; /* adjust this value to position the text next to the user picture */
+    font-size: 14px;
+    opacity: 0;
+    background-color: #ffff;
+    color: black;
+    padding: 6px 12px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+
+
+.user_pic:hover + .account-text {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar ul {
+        display: none; /* Hide the nav links for mobile, you might want to implement a hamburger menu */
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .sub-menu-wrap {
+        width: 100%; /* Make dropdown full width on mobile */
+        right: 0;
+    }
+}
+
+/*Dropdown menu*/
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar .dropdown1 {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 85px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content1 a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content1 a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+.profile-page {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    width: 90%;
+    max-width: 1440px;
+    margin: 20px auto;
+    background-color: white; /* White background for the whole card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* General shadow for the card */
+    border-radius: 12px;
+}
+
+/* Sidebar */
+.profile-sidebar {
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* Soft shadow */
+}
+
+.profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    margin: 10px 0;
+}
+
+.profile-sidebar p {
+    color: #606770;
+    font-size: 14px;
+}
+
+.skills {
+    margin-top: 20px;
+}
+
+.skill-tags span {
+    background: rgb(252, 241, 169);
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    display: inline-block;
+    font-size: 12px;
+    color: black
+}
+
+.notes {
+    margin-top: 20px;
+}
+
+.notes textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.notes button {
+    padding: 10px 20px;
+    background: rgb(255, 220, 0);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main Section */
+.profile-main {
+    width: 70%;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.basic-info, .experience-list, .additional-info {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* Matching shadow across boxes */
+    margin-bottom: 20px;
+}
+
+.basic-info h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.basic-info p {
+    font-size: 14px;
+    color: black;
+    margin: 8px 0;
+}
+
+.basic-info p strong {
+    color: black;
+}
+
+.actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.actions button {
+    padding: 10px 15px;
+    margin: 5px;
+    background:rgb(255, 220, 0);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.actions button:hover {
+    background: #e1c302;
+}
+
+.notes button:hover {
+    background: #e1c302;
+}
+
+.experience {
+    margin-bottom: 20px;
+}
+
+.experience-list {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09); /* Matching shadow */
+    line-height: 1.6;
+}
+
+.experience-list h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.experience-list p {
+    font-size: 14px;
+    color: #606770;
+    margin: 0;
+}
+
+.experience-list p strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.experience-list br {
+    margin-bottom: 15px;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.section-header h4 {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(73, 65, 0, 0.667);
+    cursor: pointer;
+}
+
+.section-header h4:hover {
+    color: rgb(255, 220, 0);
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    color: rgb(255, 220, 0);
+    transition: color 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    color: #e1c302;
+}
+
+.dropdown-btn:focus {
+    outline: none;
+}
+
+/* Content initially hidden */
+.additional-info .content {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    overflow: hidden;
+}
+
+.additional-info .content p {
+    margin: 0;
+}
+
+.additional-info h4 {
+    padding: 10px 0;
+}
+
+/* Toggle button for Education, Accomplishments, and Certifications */
+.dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(73, 65, 0, 0.667);
+    margin-left: 10px;
+}
+
+.dropdown-btn:hover {
+    color: rgb(255, 220, 0);
+}
+
+.dropdown-btn:focus {
+    outline: none;
+}
+
+.additional-info .content p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .profile-page {
+        flex-direction: column; /* Stack sidebar and main section */
+    }
+    .profile-sidebar, .profile-main {
+        width: 100%; /* Full width on small screens */
+        border-right: none; /* Remove border */
+        box-shadow: none; /* Remove shadow for simpler look */
+    }
+}
+
+.profile-sidebar p{
+    color: black;
+    font-size: 12px;
+}

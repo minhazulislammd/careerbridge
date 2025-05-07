@@ -1,0 +1,622 @@
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+}
+
+.page{
+    width: 100%;
+    min-height: 100vh;
+    background-color: hsl(210, 20%, 97%);
+   
+}
+
+@font-face {
+    font-family: nova;
+    src: url(logo/Nova_Flat/NovaFlat-Regular.ttf);
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content:space-between; /* Align items to the start (left) */
+    width: 100%;
+    align-items: center;
+    position: relative;
+    padding: 15px 40px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a{
+    cursor: pointer;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    font-family: nova;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px; /* Add space between logo and menu items */
+    cursor: pointer;
+}
+
+.navbar .logo {
+    margin-right: 20px; /* Add space between logo and menu items */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin-right: auto; /* Pushes the profile icon to the right */
+}
+
+.navbar ul li {
+    margin: 0 25px; /* Increase space between li items */
+    font-size: 14px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar ul li a:hover {
+    color:  rgb(255, 221, 0);
+}
+
+.profile-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user_pic{
+        width: 60px; /* Set a fixed width */
+        border-radius: 50%; /* Make it circular */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+        margin-right: 1px;   
+        cursor: pointer;
+}
+    
+.user_pic img {
+        width: 100%; /* Keep the image responsive within the circle */
+        height: auto; /* Maintain aspect ratio */
+}
+    
+.user_pic:hover {
+        background-color: #d9e9ff; /* Slightly darker on hover */
+}
+
+.sub-menu-wrap{
+    background-color: white;
+    position: absolute;
+    top: 95%;
+    right: 3%;
+    max-height: 0px;
+    overflow: hidden;
+    border-radius: 5px;    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 300px;
+}
+
+.sub-menu{
+    width: 250px;
+    padding: 15px;
+    margin: 5px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3{
+    font-weight: 500;
+}
+
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;
+    background: #ccc;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+.sub-menu-link p{
+    width: 70%;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: hsl(0, 0%, 85%);
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 12px;
+}
+
+.sub-menu-link span{
+    font-size: 24px;
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.sub-menu-link:hover {
+    background-color: #eeeeee; /* Background color on hover */
+}
+
+.account-text {
+    position: absolute;
+    top: 110%;
+    transform: translateY(-50%);
+    right: 35px; /* adjust this value to position the text next to the user picture */
+    font-size: 14px;
+    opacity: 0;
+    background-color: #ffff;
+    color: black;
+    padding: 6px 12px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+
+
+.user_pic:hover + .account-text {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar ul {
+        display: none; /* Hide the nav links for mobile, you might want to implement a hamburger menu */
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .sub-menu-wrap {
+        width: 100%; /* Make dropdown full width on mobile */
+        right: 0;
+    }
+}
+
+/*Dropdown menu*/
+.navbar .dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar .dropdown1 {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    font-weight: 400;
+}
+
+.navbar .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* Background color of dropdown */
+    min-width: 170px;
+    height: 85px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    top: 100%;
+}
+
+.navbar .dropdown-content1 a {
+    color: #333; /* Text color */
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.navbar .dropdown-content1 a:hover {
+    background-color: #f1f1f1; /* Background color on hover */
+}
+
+.navbar .dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: flex-start; /* Align items at the start */
+}
+
+.profile-section {
+    width: 35%; /* Control width for profile section */
+    margin-right: 20px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+main {
+    flex-grow: 1; /* Allows the main section to take up the remaining space */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+}
+
+.job-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-card h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    font-size: 14px;
+}
+
+/*.profile-card .progress-bar {
+    background-color: #ddd;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.profile-card .progress {
+    background-color: rgb(255, 220, 0);
+    height: 100%;
+    border-radius: 5px;
+}
+
+*/
+
+.profile-card .progress-bar{
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-card .progress {
+    height: 100%;
+    background-color: rgb(255, 220, 0); 
+    transition: width 0.3s; /* Smooth transition */
+    border-radius: 5px;
+}
+
+
+.profile-card a {
+    color: #00796B;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.promo-options {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.promo-options h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.promo-options .promo-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.promo-options .promo-item .edit {
+    color: #2E7D32;
+    text-decoration: none;
+}
+
+.connections {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.job-list h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.job-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.job-info p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.job-item strong {
+    color: #004D40;
+}
+
+/* Tabs Section */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab{
+    margin-right: 20px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+}
+
+.tab {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tab.active {
+    color: rgb(255, 220, 0);
+    border-bottom: 2px solid rgb(255, 220, 0);
+}
+
+/*
+#post-job-button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+#post-job-button:hover {
+    background-color: #005bb5;
+}
+    */
+
+.job-list {
+    max-width: 80%;
+    padding: 20px;
+}
+
+.job-header {
+    margin-bottom: 15px;
+}
+
+.job-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.posted-time {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.job-info {
+    font-weight: 400px;
+    margin-bottom: 20px;
+}
+
+.job-info p {
+    margin: 10px 0;
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: #e0eaff;
+    color: #0073e6;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+.client-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.payment-verified {
+    color: #0c9e0c;
+}
+
+.client-rating {
+    color: gold;
+}
+
+.client-location {
+    color: #888;
+}
+
+.proposals p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 29px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  span{
+      font-size: 12px;
+      padding: 20px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 2px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  .message-btn {
+    background-color: rgb(255, 220, 0);
+    color: black;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; /* Absolute positioning */
+    top: 15px; /* Distance from the top of the card */
+    right: 15px; /* Distance from the right of the card */
+    z-index: 10; /* Ensure the button is above other content */
+}
+
